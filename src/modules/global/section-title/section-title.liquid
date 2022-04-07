@@ -1,0 +1,10 @@
+{%- assign title = title -%}
+
+<div class="section-title-container">
+    {% if title != blank %}
+        <h2 class="h2 section-title">{{ title }}</h2>
+    {% endif %}
+    {% if subtitle != blank %}
+        <p class="section-subtitle">{{ subtitle }}</p>
+    {% endif %}
+</div>

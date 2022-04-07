@@ -1,0 +1,27 @@
+.contact-form {
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+
+  input {
+    background-color: #fff;
+    border: 1px solid rgba(85, 85, 85, 0.133);
+    width: 100%;
+    padding: 5px;
+    height: 34px;
+  }
+
+  textarea {
+    border: 1px solid rgba(85, 85, 85, 0.133);
+    resize: none;
+    width: 100%;
+  }
+
+  label {
+    display: block;
+  }
+
+  .form-field {
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,16 @@
+{%- capture page_title -%}
+  {{ page_title }}
+    {%- if current_tags -%}
+      {%- assign meta_tags = current_tags | join: ', ' -%} &nbsp;&ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}
+    {%- endif -%}
+    {%- if current_page != 1 -%}
+      &nbsp;&ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {%- endif -%}
+    {%- unless page_title contains shop.name -%}
+      &nbsp;&ndash; {{ shop.name }}
+    {%- endunless -%}
+{%- endcapture -%}
+{%- assign page_title_stripped = page_title | strip_newlines -%}
+<title>{{page_title_stripped}}</title>
+{%- assign page_title_stripped = nil -%}
+{%- assign page_title = nil -%}

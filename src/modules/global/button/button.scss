@@ -1,0 +1,52 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  background-color: $c-red;
+  color: #fff;
+  padding: 8px 22px;
+
+  &.btn--full {
+    width: 100%;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #000;
+}
+
+.btn--reset {
+  padding: 0;
+  height: auto;
+  text-align: left;
+  letter-spacing: 0;
+  min-width: inherit;
+  text-decoration: underline;
+  line-height: 1.2;
+}
+
+.btn--skiplink {
+  top: 0;
+  left: 50%;
+  opacity: 0;
+  z-index: 1000;
+  color: $c-grey;
+  position: absolute;
+  padding: 10px 30px;
+  text-transform: uppercase;
+  border: 3px solid $c-grey;
+  background-color: $c-black;
+  transform: translate(-50%, -100px);
+
+  &:active,
+  &:focus {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 10px);
+    transition: all 0.3s ease;
+  }
+}

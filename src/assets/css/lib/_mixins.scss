@@ -1,0 +1,78 @@
+
+/**
+ * @info
+ * Here, we outline an array of utility
+ * mixins. The intent is to add to these as the
+ * project evolves.
+ */
+
+@mixin font-size ($font-size, $line-height) {
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+@mixin font-family--main () {
+  font-family: 'GT Super Display', sans-serif;
+}
+
+@mixin font-family--secondary () {
+  // font-family: Times, "Times New Roman", serif;
+  font-family: 'Platform', serif;
+}
+
+@mixin smooth-scroll () {
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin chevron(
+  $dimensions,
+  $borderWidth,
+  $borderColor,
+  $margin,
+  $rotation,
+  $origin,
+  $transitionDuration
+) {
+  content: '';
+  width: $dimensions;
+  height: $dimensions;
+  display: inline-block;
+  vertical-align: middle;
+  border-width: 0 0 $borderWidth $borderWidth;
+  border-style: solid;
+  border-color: $borderColor;
+  margin: $margin;
+  transform: rotate($rotation);
+  transform-origin: $origin;
+  transition: transform $transitionDuration;
+}
+
+@mixin small {
+  @media screen and (max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin medium-down {
+  @media screen and (max-width: 890px) {
+    @content;
+  }
+}
+
+@mixin medium-up {
+  @media screen and (min-width: 890px) {
+    @content;
+  }
+}
+
+@mixin large-down {
+  @media screen and (max-width: 950px) {
+    @content;
+  }
+}
+
+@mixin large-up {
+  @media screen and (min-width: 950px) {
+    @content;
+  }
+}

@@ -1,0 +1,15 @@
+{%- assign preview_image = product.featured_media.preview_image -%}
+<div class="product-list">
+    <div class="image-container">
+      <a href="{{ product.url }}">
+        <img src="{{ preview_image | img_url: '120x' }}" alt="{{ preview_image.alt }}">
+      </a>
+    </div>
+    <div class="product-description">
+      <a href="{{ product.url }}">
+        <h3 class="h3 product-title">{{ product.title }}</h3>
+      </a>
+      <p class="product-type">{{ product.type }}</p>
+      <p class="product-price">{{ product.price | money }}</p>
+    </div>
+</div>

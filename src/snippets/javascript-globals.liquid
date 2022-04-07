@@ -1,0 +1,10 @@
+{% comment %} @info
+This snippet is intended to house any Javascript variables
+that need to exist in the global scope. The examples include
+a reference to the theme's Shopify CDN.
+{% endcomment %}
+<script>
+  var __GLOBAL__ = {
+    cdn: "{{ 'test.jpg' | asset_url }}".replace(/test.jpg\?\d*/,'')
+  }
+</script>

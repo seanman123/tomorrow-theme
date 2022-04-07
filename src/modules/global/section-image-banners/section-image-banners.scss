@@ -1,0 +1,65 @@
+.section-image-banners {
+  padding: 0 40px;
+  max-width: 1440px;
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  @include large-down {
+    padding: 0;
+  }
+
+  @include small {
+    flex-wrap: wrap;
+    margin: 50px auto 0;
+    gap: 20px;
+  }
+
+  &__image {
+    position: relative;
+    text-align: center;
+  }
+
+  &__banner-container {
+    width: 100%;
+    position: relative;
+  }
+
+  &__banner-content {
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
+    text-align: center;
+
+    .banner-heading {
+      margin: 0 auto 10px;
+      max-width: 700px;
+      padding: 0 15px;
+      line-height: 60px;
+      color: $c-white;
+      font-size: 64px;
+      font-weight: 300;
+
+      @include large-down {
+        font-size: 32px;
+      }
+    }
+
+    .banner-cta {
+      color: $c-white;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: 'Platform', sans-serif;
+      text-transform: uppercase;
+      border-bottom: 1px solid $c-white;
+      padding-bottom: 2px;
+      letter-spacing: 0.15em;
+
+      @include large-down {
+        font-size: 16px;
+      }
+    }
+  }
+}

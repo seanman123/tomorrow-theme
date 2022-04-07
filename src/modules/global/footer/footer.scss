@@ -1,0 +1,179 @@
+/* ------------------------------------------------------------ *\
+  Footer
+\* ------------------------------------------------------------ */
+.footer {
+  background-color: $c-dark-brown;
+  color: #fff;
+
+  .left-col {
+    width: 100%;
+
+    @media #{$mq-m} {
+      width: 50%;
+      padding-right: 10%;
+    }
+  }
+
+  .center-col {
+    width: 100%;
+    padding-top: 20px;
+
+    @media #{$mq-m} {
+      width: 25%;
+      padding-top: 0;
+    }
+  }
+
+  .right-col {
+    width: 100%;
+
+    @media #{$mq-m} {
+      width: 25%;
+    }
+  }
+
+  .socials-list {
+    justify-content: center;
+
+    @media #{$mq-m} {
+      justify-content: flex-start;
+    }
+  }
+
+  .socials {
+    svg,
+    path {
+      fill: #fff;
+    }
+  }
+
+  .menu-container {
+    padding-bottom: 15px;
+
+    @media #{$mq-m} {
+      padding-bottom: 10%;
+    }
+  }
+
+  .menu__item {
+    padding-bottom: 10px;
+
+    a {
+      color: #fff;
+    }
+
+    &.is-active {
+      a {
+        color: $c-yellow;
+      }
+    }
+  }
+
+  .menu-title {
+    @include font-size(20px, 24px);
+
+    margin-bottom: 18px;
+  }
+
+  .payment-methods {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    opacity: 0.5;
+
+    @media #{$mq-m} {
+      justify-content: flex-end;
+    }
+  }
+}
+
+.footer-inner {
+  padding: 4% 0;
+  text-align: center;
+
+  @media #{$mq-m} {
+    text-align: left;
+  }
+}
+
+.footer-text {
+  padding-top: 20px;
+}
+
+.footer-contacts {
+  padding: 20px 0;
+}
+
+.payment-icon {
+  padding: 0 5px;
+}
+
+.copyright {
+  background-color: $c-dark-brown-2;
+  font-size: 14px;
+  text-align: center;
+
+  .col-left {
+    width: 100%;
+    order: 2;
+
+    @media #{$mq-m} {
+      width: 40%;
+    }
+  }
+
+  .col-right {
+    width: 100%;
+
+    @media #{$mq-m} {
+      width: 60%;
+      order: 2;
+    }
+  }
+}
+
+.copyright-text {
+  justify-content: center;
+
+  @media #{$mq-m} {
+    justify-content: flex-start;
+  }
+
+  span {
+    display: inline-block;
+    padding-right: 5px;
+  }
+}
+
+.copyright-menu {
+  ul {
+    @media #{$mq-m} {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .menu__item {
+    position: relative;
+    padding: 10px 0;
+    font-size: 14px;
+
+    @media #{$mq-m} {
+      padding: 10px;
+    }
+
+    &::after {
+      @media #{$mq-m} {
+        content: '|';
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{%- assign width = 'full' -%}
+{% case section.blocks.size %}
+    {% when 2 %}
+        {%- assign width = 'half' -%}
+    {% when 3 %}
+        {%- assign width = 'one-third' -%}
+    {% when 4 %}
+        {%- assign width = 'one-fourth' -%}
+{% endcase %}
+
+<div data-section-id="{{ section.id }}">
+    <div class="container f fw">
+        {% for block in section.blocks %}
+            {% assign title = block.settings.title %}
+            {% assign text = block.settings.text %}
+            <div class="text-column {{ width }}">
+                <h2 class="h5 text-column-title">{{ title }}</h2>
+                <p class="text-column-text">{{ text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Text columns",
+    "class": "text-columns",
+    "presets": [
+        {
+            "name": "Text columns",
+            "category": "Text",
+            "blocks": [
+                {
+                    "type": "text_block"
+                },
+                {
+                    "type": "text_block"
+                },
+                {
+                    "type": "text_block"
+                }
+            ]
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Column",
+            "type": "text_block",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "text",
+                    "label": "Text"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

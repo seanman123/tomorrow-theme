@@ -1,0 +1,129 @@
+{
+  "sections": {
+    "section-content-cards": {
+      "type": "section-content-cards",
+      "blocks": {
+        "6b0aa57e-c5db-4bec-89f9-1b5e0aedc144": {
+          "type": "featured_card",
+          "settings": {
+            "color": "#00966e",
+            "image": "shopify:\/\/shop_images\/Rectangle_289.png",
+            "heading": "Make a scene.",
+            "info": "Everything you need for a great party, from decor to drinks and games.",
+            "button_text": "Find your scene",
+            "button_url": "#"
+          }
+        },
+        "ad5e4887-1655-4116-a4ab-331659629f83": {
+          "type": "featured_card",
+          "settings": {
+            "color": "#85abbd",
+            "image": "shopify:\/\/shop_images\/Rectangle_289_d89db094-678d-4985-8f38-1492e1cf1ba2.png",
+            "heading": "Make it extra.",
+            "info": "Once you’ve chosen a scene, you can dial it up with fun a la carte add-ons.",
+            "button_text": "shop party supplies",
+            "button_url": "#"
+          }
+        },
+        "85fc13c0-9adf-4af5-9a21-1e5c5f1d754d": {
+          "type": "featured_card",
+          "settings": {
+            "color": "#e3ff21",
+            "image": "shopify:\/\/shop_images\/Rectangle_2891.png",
+            "heading": "Make it joyful.",
+            "info": "Create the arrangement of your dreams with DIY kits from Wild & Flowers.",
+            "button_text": "shop florals",
+            "button_url": "#"
+          }
+        },
+        "555b7be4-4944-4009-b160-82081964bac9": {
+          "type": "featured_card",
+          "settings": {
+            "color": "#bf91c4",
+            "image": "shopify:\/\/shop_images\/Rectangle_2892.png",
+            "heading": "Make it happen.",
+            "info": "Need a bartender, caterer, or DJ? Just add to cart. It’s that easy.",
+            "button_text": "browse vendors",
+            "button_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "6b0aa57e-c5db-4bec-89f9-1b5e0aedc144",
+        "ad5e4887-1655-4116-a4ab-331659629f83",
+        "85fc13c0-9adf-4af5-9a21-1e5c5f1d754d",
+        "555b7be4-4944-4009-b160-82081964bac9"
+      ],
+      "settings": {
+        "heading": "Having Fun 101"
+      }
+    },
+    "section-image-banners": {
+      "type": "section-image-banners",
+      "blocks": {
+        "e751b6c1-ab79-493d-99db-07e62bbe5489": {
+          "type": "featured_banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_324.png",
+            "heading": "Housewarming Gifts for the Host",
+            "button_text": "discover them all",
+            "button_url": "#"
+          }
+        },
+        "e9f36a2e-3302-44ba-8f91-157fc4ab22a4": {
+          "type": "featured_banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_324_33164555-961e-4ff9-aac6-5ab02da2387a.png",
+            "heading": "The Limited-Edition Holiday Scene",
+            "button_text": "shop the scene",
+            "button_url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "e751b6c1-ab79-493d-99db-07e62bbe5489",
+        "e9f36a2e-3302-44ba-8f91-157fc4ab22a4"
+      ],
+      "settings": {
+      }
+    },
+    "section-featured-products": {
+      "type": "section-featured-products",
+      "blocks": {
+        "2b03b9a1-9878-456a-ba32-78a615b2e289": {
+          "type": "featured_product",
+          "settings": {
+            "product": "classic-barware"
+          }
+        },
+        "612b070b-2292-4f50-83fd-87d4057e61d0": {
+          "type": "featured_product",
+          "settings": {
+            "product": "colored-wine-glasses"
+          }
+        },
+        "19a73e21-beb3-4aed-a7be-23d0f8d112f8": {
+          "type": "featured_product",
+          "settings": {
+            "product": "figlia-aperitivo"
+          }
+        }
+      },
+      "block_order": [
+        "2b03b9a1-9878-456a-ba32-78a615b2e289",
+        "612b070b-2292-4f50-83fd-87d4057e61d0",
+        "19a73e21-beb3-4aed-a7be-23d0f8d112f8"
+      ],
+      "settings": {
+        "heading": "PARTY A LA CARTE",
+        "button_text": "Shop All",
+        "button_url": "#"
+      }
+    }
+  },
+  "order": [
+    "section-content-cards",
+    "section-image-banners",
+    "section-featured-products"
+  ]
+}

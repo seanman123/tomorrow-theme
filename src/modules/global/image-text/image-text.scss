@@ -1,0 +1,43 @@
+.image-text-row {
+  padding: 20px 0;
+
+  @media #{$mq-m} {
+    padding: 0;
+  }
+
+  .col {
+    @media #{$mq-m} {
+      width: 50%;
+    }
+  }
+
+  &:nth-child(odd) {
+    .image-col {
+      @media #{$mq-m} {
+        order: 2;
+      }
+    }
+  }
+
+  .content-col {
+    background-color: $c-yellow;
+    padding: 6% 4%;
+
+    p {
+      padding-bottom: 15px;
+    }
+  }
+
+  .image-col {
+    width: 100%;
+    text-align: center;
+
+    @media #{$mq-m} {
+      width: 50%;
+    }
+  }
+}
+
+.row-title {
+  margin-bottom: 25px;
+}

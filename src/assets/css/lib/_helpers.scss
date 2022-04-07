@@ -1,0 +1,59 @@
+/**
+ * @info
+ * Here, we outline an array of helper utility
+ * classes that solve needs that relate to a variety
+ * of concerns. Add to this as the
+ * project evolves.
+ */
+
+/**
+ * A simple way to hide an element
+ */
+.hidden {
+  display: none;
+}
+
+/**
+ * Visually hidden but read by screen readers
+ */
+.sr-only {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 0;
+}
+
+/**
+ * Simple helpers for handling SVG-based
+ * icons.
+ *
+ * Example:
+ * <div class="icon">
+ *  {%- include 'icon' with 'icon-bag' -%}
+ *  <span class="sr-only">Shopping bag icon</span>
+ * </div>
+ */
+.icon,
+.logo {
+  position: relative;
+
+  svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/**
+ * Easily makes a DOM element fill the entire
+ * width and height of it's relative parent.
+ */
+.fill {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

@@ -1,0 +1,125 @@
+<footer class="footer">
+  <div class="container container--md">
+    <div class="footer-inner f fw">
+      <div class="col left-col">
+        <div class="footer-logo">
+          <a href="{{ routes.root_url }}"></a>
+            <img src="{{ section.settings.logo | img_url: '150x' }}" alt="{{ shop.name }}">
+          </a>
+        </div>
+        {% if section.settings.text != blank %}
+          <div class="footer-text">
+            {{ section.settings.text }}
+          </div>
+        {% endif %}
+        {% if section.settings.contacts != blank %}
+          <div class="footer-contacts">
+            {{ section.settings.contacts }}
+          </div>
+        {% endif %}
+
+        <div class="socials">
+          <ul class="socials-list f fw">
+              {%- assign socials = "Facebook Twitter Pinterest Instagram Tumblr Snapchat YouTube Vimeo" | split: ' ' -%}
+              {%- for social in socials -%}
+              {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
+              {%- assign icon_link = social | prepend: 'icon-' | downcase -%}
+              {%- if settings[social_link] != blank -%}
+                  <li class="social-icons__item">
+                    <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
+                        {%- include icon_link -%}
+                    </a>
+                  </li>
+              {%- endif -%}
+              {%- endfor -%}
+          </ul>
+        </div>
+
+      </div>
+      <div class="col center-col">
+        <div class="menu-container">
+          <h5 class="h5 menu-title">{{ linklists[section.settings.menu_1].title }}</h5>
+          {% include 'menu', handle: section.settings.menu_1 %}
+        </div>
+        <div class="menu-container">
+          <h5 class="h5 menu-title">{{ linklists[section.settings.menu_2].title }}</h5>
+          {% include 'menu', handle: section.settings.menu_2 %}
+        </div>
+      </div>
+      <div class="col right-col">
+        <div class="menu-container">
+          <h5 class="h5 menu-title">{{ linklists[section.settings.menu_3].title }}</h5>
+          {% include 'menu', handle: section.settings.menu_3 %}
+        </div>
+      </div>
+    </div>
+
+    <div class="payment-methods">
+      <ul class="payment-icons f fw list--inline site-footer__icon-list">
+        {%- for type in shop.enabled_payment_types -%}
+          <li class="payment-icon">
+            {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="container container--md">
+      <div class="copyright-inner f fw aic">
+        <div class="col-left">
+          <div class="copyright-text f fw">
+            <span> &copy; {{ 'now' | date: '%Y' }} </span>{{ settings.copyright }}
+          </div>
+        </div>
+        <div class="col-right">
+          <div class="copyright-menu">
+            {% include 'menu', handle: settings.copyright_menu %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "footer-wrapper",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "richtext",
+      "id": "contacts",
+      "label": "Contacts"
+    },
+    { 
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Footer menu 1",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Footer menu 2",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_3",
+      "label": "Footer menu 3",
+      "default": "main-menu" 
+    }
+  ]
+}
+{% endschema %}

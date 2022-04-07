@@ -1,0 +1,24 @@
+{% assign mod_settings = mod_settings | default: false %}
+
+{% if mod_settings %}
+  <div class="notification-bar" data-module="notification-bar" style="background-color: {{ mod_settings.background }}; color: {{ mod_settings.color }};">
+    {% if mod_settings.url != blank %}
+      <a href="{{- mod_settings.url -}}">
+    {% endif %}
+
+    {% if mod_settings.text != blank %}
+      <div class="notification-bar__text">
+        {{- mod_settings.text | newline_to_br -}}
+      </div><!-- /.notification-bar__text -->
+
+      <button class="notification-bar__close js-close" aria-label="{{- general.actions.close -}}">
+        <span></span>
+        <span></span>
+      </button><!-- /.notification-bar__btn -->
+    {% endif %}
+
+    {% if mod_settings.url != blank %}
+      </a>
+    {% endif %}
+  </div><!-- /.notification-bar -->
+{% endif %}

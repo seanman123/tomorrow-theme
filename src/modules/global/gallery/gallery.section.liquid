@@ -1,0 +1,59 @@
+<div data-section-id="{{ section.id }}" data-module="gallery">
+    <div class="container">
+        <div class="section-title-container">
+            {% if section.settings.title != blank %}
+                <h2 class="h2 section-title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+                <div class="section-subtitle">{{ section.settings.subtitle }}</div>
+            {% endif %}
+        </div>
+        <div class="gallery-carousel">
+            {% for block in section.blocks %}
+                {%- assign block_image = block.settings.image -%}   
+                <div class="gallery-slide" style="background-image: url('{{ block_image | img_url: '288x' }}');">
+                    <img src="{{ block.settings.image | img_url: '311x' }}" alt="{{ block.settings.image.alt }}">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{ 
+    "name": "Gallery",
+    "class": "gallery",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Gallery",
+            "category": "Image"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "Image",
+            "name": "Image",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Gallery image"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

@@ -1,0 +1,90 @@
+<section id="content-cards--{{ section.id }}" class="section-content-cards" data-module="section-content-cards">
+  {% if section.settings.heading != blank %}
+    <h2>{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="section-content-cards__cards-container card-carousel">
+    {% for block in section.blocks %}
+      <div class="section-content-cards__card card-{{ forloop.index }}">
+        <img class="card-image" src="{{ block.settings.image | img_url: '312x224' }}" loading="lazy" alt="{{ block.settings.info }}" />
+        <div class="card-text-container">
+          <h4 class="card-heading">{{ block.settings.heading }}</h4>
+          <p class="card-text">{{ block.settings.info }}</p>
+          {% if block.settings.button_url != blank %}
+            <a class="card-url" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% style %}
+  {% for block in section.blocks %}
+    #content-cards--{{ section.id }} .card-{{ forloop.index }} {
+      background: {{ block.settings.color }};
+    }
+  {% endfor %}
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Content Cards",
+    "class": "index-section",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Having Fun 101"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_card",
+        "name": "Featured Card",
+        "settings": [
+          {
+            "type": "color",
+            "id": "color",
+            "label": "Card Color",
+            "default": "#ffffff"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Card Image"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Card Heading",
+            "default": "Make a scene."
+          },
+          {
+            "type": "text",
+            "id": "info",
+            "label": "Card Info",
+            "default": "Everything you need for a great party, from decor to drinks and games."
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Card Button Info",
+            "default": "Find your scene"
+          },
+          {
+            "type": "url",
+            "id": "button_url",
+            "label": "Card Button Url"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Content Cards"
+      }
+    ]
+  }
+{% endschema %}

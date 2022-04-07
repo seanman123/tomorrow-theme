@@ -1,0 +1,15 @@
+{% comment %} @info
+If you need a translation just add the path to the following list
+{% endcomment %}
+{% assign keys = 'products.waitlist.success_title' %}
+{% assign keys = keys | append: ',products.product.sold_out' %}
+{% assign keys = keys | append: ',products.product.add_to_cart' %}
+{% assign keys = keys | append: ',cart.general.subtotal' %}
+{% assign keys = keys | append: ',cart.label.maximum' %}
+{% assign keys = keys | split: ","  %}
+<script>
+  const langIndex = {};
+  {% for key in keys %}
+  langIndex["{{ key }}"] = "{{ key | t }}";{% endfor %}
+  __GLOBAL__.langMessages = langIndex
+</script>

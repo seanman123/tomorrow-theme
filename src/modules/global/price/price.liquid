@@ -1,0 +1,23 @@
+{%- assign echo = echo | default: true -%}
+
+{%- if product != empty -%}
+	{% if product.compare_at_price > product.price %}
+		<del class="price__amount">
+			<span class="money">
+				{{ product.compare_at_price | money }}
+			</span><!-- /.money -->
+		</del>
+
+		<ins class="price__amount">
+			<span class="money">
+				{{ product.price | money }}
+			</span><!-- /.money -->
+		</ins>
+	{%- else -%}
+		<span class="price__amount">
+			<span class="money">
+				{{ product.price | money }}
+			</span><!-- /.money -->
+		</span>
+	{%- endif -%}
+{%- endif -%}

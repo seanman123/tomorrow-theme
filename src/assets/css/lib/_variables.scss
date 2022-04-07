@@ -1,0 +1,54 @@
+/**
+ * @info
+ * This stylesheet outlines all variables that are used
+ * across the site. The values here are purely representational.
+ * These values should be updated in the initial development phase
+ * when the project begins.
+ */
+
+/* Breakpoints */
+$xxs: 375px;
+$xs: 414px;
+$s: 768px;
+$m: 1023px;
+$md: 1200px;
+$l: 1440px;
+
+/* Colors */
+$c-black: #000;
+$c-white: #fff;
+$c-light-grey: #f6f6f6;
+$c-light-grey-2: #F5F5F5;
+$c-grey: #d0d0d0;
+$c-dark-grey: #77777a;
+$c-yellow: #F3E7CF;
+$c-light-brown: #F4EDE5;
+$c-brown: #F3E7CF;
+$c-dark-brown: #251200;
+$c-dark-brown-2: #0F0700;
+$c-red: #A90032;
+$c-green: #00AA6C;
+
+/* Transitions */
+$duration: 0.25s;
+$speed: 0.2s;
+$ease: ease-in-out;
+$ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+$transition-default: var($duration) var($ease);
+
+/* Gutters */
+$gutter-xxs: 20px;
+$gutter-ms: 30px;
+$gutter: 40px;
+
+/* Breakpoint Queries */
+
+$mq-xxs: (min-width: $xxs + 1);
+$mq-xs: (min-width: $xs + 1);
+$mq-ipad: (min-width: $s);
+$mq-s: (min-width: $s + 1);
+$mq-m: (min-width: $m + 1);
+$mq-desktop: (min-width: $m + 2);
+$mq-md: (min-width: $md + 1);
+$mq-l: (min-width: $l + 1);

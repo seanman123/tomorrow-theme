@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="{{ shop.locale }}">
+<head>
+  <meta charset="utf-8" />
+
+	{%- if page_description -%}
+		<meta name="description" content="{{ page_description | escape }}">
+	{%- endif -%}
+
+	<link rel="canonical" href="{{ canonical_url }}">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+  {% render 'javascript-globals' %}
+  {% render 'javascript-lang' %}
+  {{ 'main.min.css' | asset_url | stylesheet_tag }}
+  {% render 'page-title' %}
+  {% render 'social-meta-tags' %}
+  {% render 'seo-schema' %}
+  {% render 'favicon' %}
+  {% render 'fonts' %}
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  {{ content_for_header }}
+</head>
+
+<body class="{% render 'body_class' %} template--{{template}} template--{{template.suffix}}">
+  <div role="navigation" aria-labelledby="skip-to-main-content">
+    {% assign label = 'general.accessibility.skip_to_content' | t %}
+
+     {% render 'button' with {
+      mod_type: 'link',
+      mod_value: label,
+      mod_class: 'btn--skiplink',
+      mod_href: '#main',
+      mod_attr: 'tabindex="0" aria-label="Skip to Main Content" id="skip-to-main-content"'
+    } %}
+  </div>
+
+ {% section 'section-header' %}
+
+
+  <div class="wrapper">
+    <div class="main" id="page-content">
+      {{ content_for_layout }}
+
+    </div>
+  </div>
+
+  
+ {% section 'footer' %}
+
+  {{ 'main.js' | asset_url | script_tag }}
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/flickity-sync@2/flickity-sync.js"></script>
+
+</body>
+</html>

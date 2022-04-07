@@ -1,0 +1,27 @@
+.gallery {
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+  }
+
+  .flickity-button {
+    display: none;
+  }
+}
+
+.gallery-slide {
+  margin: 0 10px;
+  width: 50%;
+  height: 315px;
+  background-size: cover;
+  background-position: center center;
+
+  @media #{$mq-s} {
+    width: 20%;
+  }
+
+  img {
+    height: 0;
+  }
+}

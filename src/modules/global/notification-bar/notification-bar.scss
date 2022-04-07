@@ -1,0 +1,74 @@
+/* ------------------------------------------------------------ *\
+  Notification Bar
+\* ------------------------------------------------------------ */
+
+.notification-bar-sticky {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.notification-bar {
+  position: relative;
+  padding: 17px 20px;
+  font-size: 14px;
+  text-align: center;
+  transition: height $speed $ease, padding $speed $ease;
+
+  &.is-hidden {
+    height: 0;
+    padding: 0;
+  }
+
+  .notification-bar__text {
+    color: #fff;
+
+    span {
+      position: relative;
+      margin: 0 15px;
+      padding: 0.125rem 2rem 0.125rem 1rem;
+      border: 1px solid;
+      border-radius: 0.125rem;
+      letter-spacing: 0.125rem;
+
+      &::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 1px;
+        padding: 0.125rem;
+        border: 1px solid;
+        border-radius: 0.5rem;
+        position: absolute;
+        right: 0.5rem;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    }
+  }
+
+  .notification-bar__close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%) rotate(45deg);
+      height: 2px;
+      background: currentColor;
+
+      &:last-child {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+  }
+}

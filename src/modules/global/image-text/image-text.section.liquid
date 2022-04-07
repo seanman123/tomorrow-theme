@@ -1,0 +1,93 @@
+<div data-section-id="{{ section.id }}">
+    <div class="container container--md">
+        <div class="section-title-container">
+            {% if section.settings.title != blank %}
+                <h2 class="h2 section-title">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.subtitle != blank %}
+                <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+            {% endif %}
+        </div>
+        {% for block in section.blocks %}
+        <div class="image-text-row f fw aic">
+            <div class="image-col col">
+                <img src="{{ block.settings.image | img_url: '575x' }}" alt="{{ block.settings.image.alt }}">
+            </div>
+            <div class="content-col col">
+                <h2 class="h4 row-title">{{ block.settings.title }}</h2>
+                <div class="text">{{ block.settings.text }}</div>
+                {% assign button_link = block.settings.button_link %}
+                {% assign button_text = block.settings.button_text %}
+                {% if button_link != blank and button_text != blank %}
+                    {% render 'button' with {
+                        mod_type: 'link',
+                        mod_value: button_text,
+                        mod_href: button_link,
+                        mod_class: 'btn'
+                    } %}
+                {% endif; %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Image with text",
+    "class": "image-text",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Featured collection"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        }
+    ],
+    "presets": [
+      {
+          "name": "Image with text",
+          "category": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "Image",
+        "name": "Row",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Row Image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Featured collection"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            },
+            {
+                "type": "page",
+                "id": "button_link",
+                "label": "Button link"
+            },
+            {
+              "type": "text",
+              "id": "button_text",
+              "label": "Button text"
+            }
+        ]
+      }
+    ]
+}
+{% endschema %}

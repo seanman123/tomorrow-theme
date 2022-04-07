@@ -1,0 +1,48 @@
+.review {
+  padding: 20px 0;
+
+  @media #{$mq-m} {
+    width: 33.33%;
+    padding: 0 10px;
+  }
+}
+
+.review-title {
+  @include font-size(16px, 24px);
+
+  font-weight: 600;
+
+  @media #{$mq-m} {
+    @include font-size(20px, 28px);
+  }
+}
+
+.reviews {
+  .button-container {
+    padding-top: 40px;
+    text-align: center;
+  }
+}
+
+.rating {
+  display: inline-block;
+  height: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.rating-icons {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.rating-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  display: inline-block;
+  margin: 0 2px;
+  background-color: $c-green;
+}

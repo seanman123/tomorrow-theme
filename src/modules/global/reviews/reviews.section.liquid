@@ -1,0 +1,104 @@
+<div data-section-id="{{ section.id }}" data-module="reviews"> 
+  <div class="container container--md">
+    <div class="section-title-container">
+      {% if section.settings.title != blank %}
+          <h2 class="h2 section-title">{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+          <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+      {% endif %}
+    </div>
+    <div class="reviews-container f fw">
+      {% for block in section.blocks %}
+        <div class="review">
+          <div class="rating" data-rating="{{ block.settings.rating }}">
+            <div class="rating-icons">
+              <span class="rating-icon"></span>
+              <span class="rating-icon"></span>
+              <span class="rating-icon"></span>
+              <span class="rating-icon"></span>
+              <span class="rating-icon"></span>
+            </div>
+          </div>
+          <h4 class="h4 review-title">{{ block.settings.title }}</h4>
+          <div class="review-text">{{ block.settings.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="button-container">
+      {% assign button_link = section.settings.button_link %}
+      {% assign button_text = section.settings.button_text %}
+      {% if button_link != blank and button_text != blank %}
+          {% render 'button' with {
+              mod_type: 'link',
+              mod_value: button_text,
+              mod_href: button_link,
+              mod_class: 'btn'
+          } %}
+      {% endif; %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "Reviews",
+    "class": "reviews",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        },
+        {
+          "type": "page",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button text"
+        }
+    ],
+    "presets": [
+      {
+          "name": "Reviews",
+          "category": "Text"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "Text",
+        "name": "Review",
+        "settings": [
+            {
+                "type": "range",
+                "id": "rating",
+                "label": "Rating",
+                "min": 1,
+                "max": 5,
+                "step": 0.5,
+                "default": 5
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Heading",
+                "default": "Heading"
+            },
+            {
+                "type": "richtext",
+                "id": "text",
+                "label": "Text"
+            }
+        ]
+      }
+    ]
+}
+{% endschema %}

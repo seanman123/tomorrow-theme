@@ -1,0 +1,195 @@
+
+<div data-section-id="{{ section.id }}" data-section-type="hero-slider-section" data-module="hero-slider">
+    <div class="hero-slider">
+        <div class="hero-slider-carousel">
+            {%- for block in section.blocks -%}
+                {%- assign block_image = block.settings.image -%}
+                {%- assign button_link = block.settings.button_link -%}
+                {%- assign button_text = block.settings.button_text -%}
+                {%- assign slide_text = block.settings.text -%}
+                {% if block_image %}
+                    <div class="slide" style="background-image: url('{{ block_image | img_url: '2048x' }}'); background-position: {{ block.settings.alignment }};">
+                        <div class="container">
+                            <div class="slide-content">
+                                {% if slide_text %}
+                                    <h1 class="h1 slide-title">{{ slide_text }}</h1>
+                                {% endif; %}
+                                {% if button_link and button_text %}
+                                    {% render 'button' with {
+                                        mod_type: 'link',
+                                        mod_value: button_text,
+                                        mod_href: button_link
+                                    } %}
+                                {% endif; %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif; %}
+            {%- endfor -%}
+        </div>
+        <div class="hero-slider-footer">
+            <div class="container">
+                <div class="hero-slider-pagination-carousel">
+                    {%- for block in section.blocks -%}
+                        <div class="carousel-cell">
+                            <span class="year">{{ block.settings.year }}</span>
+                        </div>
+                    {%- endfor -%}
+                </div>
+            </div>
+        </div>
+        {% assign cta_title = section.settings.cta_title %}
+        {% assign cta_button_link = section.settings.cta_button_link %}
+        {% assign cta_button_text = section.settings.cta_button_text %}
+        <div class="hero-cta f">
+            <div class="icon">
+                {% render 'icon-wine' %}
+            </div>
+            <div class="hero-cta-content">
+                {% if cta_title %}
+                    <p class="cta-title">{{ cta_title }}</p>
+                {% endif %}
+                {% if cta_button_link and cta_button_text %}
+                    {% render 'button' with {
+                        mod_type: 'link',
+                        mod_value: cta_button_text,
+                        mod_href: cta_button_link,
+                        mod_class: 'btn--white'
+                    } %}
+                {% endif; %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero slider",
+  "class": "hero-slider",
+  "settings": [
+      {
+          "type": "text",
+          "id": "cta_title",
+          "label": "CTA Title",
+          "default": "Recomendador de vinos Scala Dei: elige el ideal para ti."
+      },
+      {
+        "type": "page",
+        "id": "cta_button_link",
+        "label": "CTA Button link"
+    },
+    {
+        "type": "text",
+        "id": "cta_button_text",
+        "label": "CTA Button text",
+        "default": "Encontrar mi vino"
+    }
+  ],
+  "presets": [
+      {
+          "name": "Hero slider",
+          "category": "Image"
+      }
+  ],
+  "blocks": [
+      {
+          "type": "Image",
+          "name": "Slide", 
+          "settings": [
+              {
+                  "type": "image_picker",
+                  "id": "image",
+                  "label": "Slide"
+              },
+              {
+                  "type": "select",
+                  "id": "alignment",
+                  "label": {
+                      "en": "Image position"
+                  },
+                  "default": "center center",
+                  "options": [
+                      {
+                          "label": {
+                              "en": "Top left"
+                          },
+                          "value": "left top"
+                      },
+                      {
+                          "label": {
+                              "en": "Top center"
+                          },
+                          "value": "center top"
+                      },
+                      {
+                          "label": {
+                              "en": "Top right"
+                          },
+                          "value": "right top"
+                      },
+                      {
+                          "label": {
+                              "en": "Middle left"
+                          },
+                          "value": "left center"
+                      },
+                      {
+                          "label": {
+                              "en": "Middle center"
+                          },
+                          "value": "center center"
+                      },
+                      {
+                          "label": {
+                              "en": "Middle right"
+                          },
+                          "value": "right center"
+                      },
+                      {
+                          "label": {
+                              "en": "Bottom left"
+                          },
+                          "value": "left bottom"
+                      },
+                      {
+                          "label": {
+                              "en": "Bottom center"
+                          },
+                          "value": "center bottom"
+                      },
+                      {
+                          "label": {
+                              "en": "Bottom right"
+                          },
+                          "value": "right bottom"
+                      }
+                  ]
+              },
+              {
+                  "type": "text",
+                  "id": "text",
+                  "placeholder": "Scala Dei",
+                  "label": "Slide text"
+              },
+              {
+                  "type": "page",
+                  "id": "button_link",
+                  "label": "Button link"
+              },
+              {
+                "type": "text",
+                "id": "button_text",
+                "label": "Button text",
+                "default": "Nuestros vin os"
+            },
+			{
+                "type": "text",
+                "id": "year",
+                "placeholder": "1600",
+                "label": "Year"
+            }
+          ]
+      }
+  ]
+}
+{% endschema %}

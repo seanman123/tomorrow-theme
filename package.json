@@ -1,0 +1,42 @@
+{
+  "name": "starter-theme",
+  "version": "0.0.1-beta.1",
+  "scripts": {
+    "start": "npm run watch",
+    "watch": "kit watch --env development",
+    "build": "kit build --env production",
+    "development": "kit deploy --env development",
+    "staging": "kit deploy --env staging",
+    "deploy": "kit deploy --env production",
+    "lint": "kit lint",
+    "lint:js": "kit lint --include js",
+    "lint:css": "kit lint --include css",
+    "lint:whitespace": "eclint check **/*.liquid"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "body-scroll-lock": "^2.6.1",
+    "dom-event": "^1.0.0",
+    "dom-select": "^1.1.1",
+    "flickity": "^3.0.0",
+    "flickity-sync": "^2.0.0",
+    "lazysizes": "^5.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@halfhelix/kit": "0.0.1-beta.32",
+    "copy-webpack-plugin": "^6.1.0",
+    "eclint": "^2.8.1",
+    "eslint": "^8.12.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "standard": "^14.3.1",
+    "stylelint": "^14.6.1",
+    "stylelint-config-standard": "^19.0.0",
+    "webpack": "^4.41.5",
+    "webpack-bundle-analyzer": "^3.6.0"
+  }
+}

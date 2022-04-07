@@ -1,0 +1,64 @@
+<section id="content-image-banners--{{ section.id }}" class="section-image-banners" data-module="section-image-banners">
+  {% for block in section.blocks %}
+    {% if block.settings.image != blank %}
+      <div class="section-image-banners__banner-container block-card-{{ forloop.index }}">
+        <a class="section-image-banners_block" href="{{ block.settings.button_url }}">
+          <div class="section-image-banners__image">
+            <img src="{{ block.settings.image | img_url: '675x800' }}" loading="lazy" alt="{{ block.settings.heading }}" />
+          </div>
+          <div class="section-image-banners__banner-content">
+          <h2 class="banner-heading">{{ block.settings.heading }}</h2>
+          {% if block.settings.button_url != blank %}
+            <a class="banner-cta" href="{{ block.settings.button_url }}">{{ block.settings.button_text }}</a>
+          {% endif %}
+          </div>
+        </a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</section>
+
+{% schema %}
+  {
+    "name": "Image Banners",
+    "class": "index-section",
+    "max_blocks": 2,
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "featured_banner",
+        "name": "Featured Banner",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Banner Image"
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Banner Heading",
+            "default": "Housewarming Gifts for the Host"
+          },
+          {
+            "type": "text",
+            "id": "button_text",
+            "label": "Button Text",
+            "default": "discover them all"
+          },
+          {
+            "type": "text",
+            "id": "button_url",
+            "label": "Button Url"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image Banners"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,52 @@
+<header class="section-header" data-module="section-header">
+  <a href="{{  routes.root_url }}" class="section-header__logo">
+    {% if section.settings.logo != blank %}
+      <img src="{{ section.settings.logo | img_url: '200x' }}" loading="lazy" alt="Logo for {{ shop.name }}" />
+    {% else %}
+      <h1>{{ shop.name }}</h1>
+    {% endif %}
+  </a>
+  {% if section.settings.menu != blank %}
+    <nav class="section-header__menu">
+      <button class="close-button">Close</button>
+      <ul class="menu-list" role="list">
+        {% for link in section.settings.menu.links %}
+          <li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+  <div class="section-header__icons">
+    <a href="/search" class="section-header__icon">
+      {% render 'icon-search' %}
+    </a>
+    <a class="section-header__icon" href="/cart">
+      {% render 'icon-basket' %}
+    </a>
+    <button id="icon-hamburger" class="section-header__icon" aria-label="Open Hamburger Drawer">
+      {% render 'icon-hamburger' %}
+    </a>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

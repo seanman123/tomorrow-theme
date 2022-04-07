@@ -1,0 +1,47 @@
+{% if section.settings.notification_bar %}
+  {% render 'notification-bar', mod_settings: section.settings %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Notification Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "notification_bar",
+      "label": "Enable notification bar",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#008C95"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "URL"
+    }
+  ]
+}
+{% endschema %}

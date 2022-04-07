@@ -1,0 +1,31 @@
+.blog-article-preview {
+  padding: 15px 0;
+  border-bottom: 1px solid rgb(112, 112, 112);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.article {
+  &__title {
+    padding-bottom: 10px;
+  }
+
+  &__author {
+    font-weight: 700;
+  }
+
+  &__content {
+    padding-top: 20px;
+  }
+}
+
+.article-nav {
+  padding-bottom: 20px;
+
+  a {
+    color: $c-red;
+    font-weight: 700;
+  }
+}

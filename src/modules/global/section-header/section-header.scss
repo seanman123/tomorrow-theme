@@ -1,0 +1,79 @@
+.section-header {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 510px 100px;
+  align-items: center;
+  padding: 25px 40px;
+  gap: 10px;
+
+  @include large-down {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__logo {
+    @include large-down {
+      width: 105px;
+    }
+  }
+
+  &__menu {
+    .menu-list {
+      display: flex;
+      justify-content: flex-end;
+      gap: 35px;
+
+      a {
+        font-family: 'Platform', sans-serif;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        transition: border-bottom all 0.2s ease-in-out;
+
+        &:hover {
+          border-bottom: 1px solid black;
+        }
+      }
+
+      @include large-down {
+        flex-direction: column;
+        padding: 50px;
+      }
+    }
+
+    .close-button {
+      padding: 15px 10px;
+
+      @include large-up {
+        display: none;
+      }
+    }
+
+    @include large-down {
+      position: fixed;
+      overflow: hidden;
+      background: grey;
+      top: 0;
+      left: -500px;
+      max-width: 250px;
+      bottom: 0;
+      transition: left 0.2s ease-in-out;
+
+      &.active {
+        left: 0;
+      }
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+
+    #icon-hamburger {
+      @include large-up {
+        display: none;
+      }
+    }
+  }
+}

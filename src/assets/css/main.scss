@@ -1,0 +1,50 @@
+/**
+ * @info
+ * Here, we include stylesheets that declare
+ * the design system, including typography, colors
+ * and breakpoints. There are also a range of helper
+ * classes that can help with common needs.
+ * For example, "flex.scss" declares a series of classes
+ * that easily enable flex functionality. They are great
+ * when certain styles can be applied across all
+ * breakpoints.
+ *
+ * Example (using classes in flex.scss):
+ * <div class="f fw">
+ *  <div class="fa"></div>
+ *  <div class="fa"></div>
+ *  <div class="fa"></div>
+ * </div>
+ */
+@import "lib/reset";
+@import "lib/variables";
+@import "lib/colors";
+@import "lib/mixins";
+@import "lib/typography";
+@import "lib/align";
+@import "lib/containers";
+@import "lib/display";
+@import "lib/flex";
+@import "lib/forms";
+@import "lib/helpers";
+@import "lib/layout";
+@import "lib/shopify";
+@import "lib/global";
+
+/**
+ * @info
+ * This glob-based selector is something
+ * unique to this starterkit. Here, all stylesheets
+ * in all module files are added into this bundle. Their
+ * changes are watched and the browser updates when
+ * the files are saved. If you need one module stylesheet
+ * to be included before another, you can configure
+ * this in the kit.config.js file.
+ */
+@import "modules/**/*.scss";
+
+/**
+ * This file should read like a contents page. This
+ * file should only include other stylesheets. No
+ * style declarations should be written in this file.
+ */

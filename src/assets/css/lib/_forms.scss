@@ -1,0 +1,32 @@
+/**
+ * @info
+ * Here, we have a very simple outline of
+ * form related utility classes. Add to this
+ * file as you create opinions on how forms
+ * should be styled for the project.
+ */
+
+.form-row {
+  position: relative;
+  margin-bottom: 20px;
+  &.double {
+    display: flex;
+    justify-content: space-between;
+    & > div {
+      width: calc( 50% - 10px );
+    }
+  }
+}
+
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $c-white inset !important;
+}

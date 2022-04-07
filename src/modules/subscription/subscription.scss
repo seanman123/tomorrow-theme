@@ -1,0 +1,26 @@
+.subscription-inner {
+  background-color: $c-yellow;
+  padding-bottom: 40px;
+
+  @include font-size(16px, 24px);
+
+  form {
+    text-align: center;
+  }
+
+  .input-group {
+    display: flex;
+    justify-content: center;
+  }
+
+  input {
+    background: #fff;
+    height: 34px;
+    width: 200px;
+    max-width: 100%;
+
+    @media #{$mq-m} {
+      width: 370px;
+    }
+  }
+}

@@ -1,0 +1,143 @@
+/**
+ * @info
+ * This stylesheet outlines all typography styles
+ * that are used across the entire site. This stylesheet
+ * must be implemented thoughtfully and follow with precision
+ * the style guide that is provided by the designer. No type-related
+ * style declarations should be found in module files. All
+ * type-related style declarations go here.
+ */
+
+/*! critical */
+%main {
+  @include font-family--main;
+}
+%secondary {
+  @include font-family--secondary;
+}
+
+/* Global */
+body {
+  @extend %secondary;
+
+  letter-spacing: 0.5px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  @include font-size(14px, 20px);
+
+  @media #{$mq-s} {
+    @include font-size(16px, 24px);
+  }
+}
+
+/**
+ * By design, we attach type styling to DOM elements
+ * through classes rather than DOM Node references. We
+ * do not attach these titles via selectors like "h1 {}"
+ * to ensure that HTML is designed with semantics in mind
+ * and not styling. It is entirely possible that a DOM node
+ * might be styled like so:
+ * <h3 class="h2"></h3>
+ * In this example, the H3 DOM node has been chosen because
+ * it semantically makes sense (i.e. it better represents the
+ * information it contains when non-visual interpreters are
+ * traversing the DOM, such as screen readers). But, class-based
+ * selectors allow for the correct styling to be applied regardless.
+ *
+ * We also include the definition of abstract classes (e.g. %h1) so that
+ * these styles can be used in stylesheets too. For example:
+ * .page-title {
+ *   @extend %h1;
+ * }
+ */
+
+%h1,
+h1 {
+  @extend %main;
+
+  @include font-size(48px, 56px);
+
+  @media #{$mq-s} {
+    @include font-size(54px, 62px);
+  }
+}
+
+%h2,
+h2 {
+  @extend %main;
+
+  @include font-size(36px, 44px);
+
+  @media #{$mq-xs} {
+    @include font-size(48px, 56px);
+  }
+}
+
+%h3,
+h3 {
+  @extend %main;
+
+  @include font-size(24px, 32px);
+
+  @media #{$mq-xs} {
+    @include font-size(36px, 42px);
+  }
+}
+
+%h4,
+h4 {
+  @extend %main;
+
+  @include font-size(20px, 24px);
+
+  @media #{$mq-xs} {
+    @include font-size(28px, 32px);
+  }
+}
+
+%h5,
+.h5 {
+  @extend %main;
+
+  @include font-size(16px, 24px);
+}
+
+%h6,
+.h6 {
+  @extend %main;
+
+  @include font-size(12px, 20px);
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+%h6--link,
+.h6--link {
+  @extend %main;
+
+  @include font-size(14px, 22px);
+
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+%h1,
+.h1,
+%h2,
+.h2,
+%h3,
+.h3,
+%h4,
+.h4,
+%h5,
+.h5,
+%h6,
+.h6 {
+  font-weight: 600;
+}
+
+a {
+  @extend %secondary;
+}

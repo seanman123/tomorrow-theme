@@ -1,0 +1,70 @@
+<section id="content-featured-products--{{ section.id }}" class="section-featured-products" data-module="section-featured-products">
+  {% if section.settings.heading != blank %}
+    <h2>{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="section-featured-products__products-container product-carousel">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      <div class="section-featured-products__card card-{{ forloop.index }}">
+        <div class="card-image-container">
+          <img src="{{ product.featured_image | img_url: '418x313' }}" loading="lazy" alt="{{ product.title }}" />
+          <button data-variant-id="{{ product.first_available_variant.id }}" class="middle-cta">Add to Cart</button>
+        </div>
+        <div class="card-text-container">
+          <h4 class="card-product-title">{{ product.title }}</h4>
+          <p class="card-price">{{ product.price | money_without_trailing_zeros }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  {% if section.settings.button_url != blank %}
+    <div class="section-featured-products__cta-link-container">
+      <a class="cta-link" href="{{ section.settings.button_url }}">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %}
+</section>
+  
+{% schema %}
+  {
+    "name": "Featured Products",
+    "class": "index-section",
+    "max_blocks": 3,
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading",
+        "label": "Heading",
+        "default": "PARTY A LA CARTE"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Card Button Info",
+        "default": "Shop All"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Card Button Url"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "featured_product",
+        "name": "Featured Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured Products"
+      }
+    ]
+  }
+{% endschema %}

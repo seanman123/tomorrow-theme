@@ -1,0 +1,43 @@
+.text-columns {
+  background-color: $c-yellow;
+  padding: 15px 0;
+}
+
+.text-column {
+  width: 100%;
+  padding: 15px;
+
+  &.one-fourth {
+    @media #{$mq-m} {
+      width: 25%;
+    }
+  }
+
+  &.one-third {
+    @media #{$mq-m} {
+      width: 33.33%;
+    }
+  }
+
+  &.half {
+    @media #{$mq-m} {
+      width: 50%;
+    }
+  }
+
+  @media #{$mq-m} {
+    width: auto;
+    padding: 17px 30px;
+  }
+}
+
+.text-column-title {
+  @include font-size(18px, 20px);
+
+  font-weight: 600;
+  padding-bottom: 20px;
+
+  @media #{$mq-m} {
+    @include font-size(20px, 24px);
+  }
+}

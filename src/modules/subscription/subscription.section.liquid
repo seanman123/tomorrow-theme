@@ -1,0 +1,70 @@
+<div data-section-id="{{ section.id }}">
+  <div class="container container--md">
+    <div class="subscription-inner">
+      <div class="section-title-container">
+        {% if section.settings.title != blank %}
+            <h2 class="h2 section-title">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+            <p class="section-subtitle">{{ section.settings.subtitle }}</p>
+        {% endif %}
+      </div>
+      {% form 'customer' %}
+        {%- if form.posted_successfully? -%}
+          <p class="form-message form-message--success" tabindex="-1" data-form-status>
+            {{ 'general.newsletter.form.confirmation' | t }}
+          </p>
+        {%- endif -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+          <input type="email"
+            name="contact[email]"
+            id="{{ formId }}-email"
+            class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
+            value="{{ form.email }}"
+            placeholder=""
+            aria-label=""
+            aria-required="true"
+            required
+            autocorrect="off"
+            autocapitalize="off"
+            {% if form.errors %}
+              aria-invalid="true"
+              aria-describedby="{{ formId }}-email-error"
+              data-form-status
+            {% endif %}>
+          <span class="input-group__btn">
+            <button type="submit" class="btn newsletter__submit" name="commit" >
+              <span class="newsletter-submite">{{ 'newsletter.form.submit' | t }}</span>
+            </button>
+          </span>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+    "name": "Subscription",
+    "class": "subscription",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+        },
+        {
+            "type": "richtext",
+            "id": "subtitle",
+            "label": "Subtitle"
+        }
+    ],
+    "presets": [
+      {
+          "name": "Subscription",
+          "category": "Text"
+      }
+    ]
+}
+{% endschema %}

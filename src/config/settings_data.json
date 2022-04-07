@@ -1,0 +1,26 @@
+{
+    "current": {
+      "sections": {
+        "section-header": {
+          "type": "section-header",
+          "settings": {
+            "logo": "shopify:\/\/shop_images\/LOGO.png",
+            "menu": "main-menu"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "text": "",
+            "contacts": "",
+            "menu_1": "main-menu",
+            "menu_2": "main-menu",
+            "menu_3": "main-menu"
+          }
+        }
+      },
+      "content_for_index": [
+  
+      ]
+    }
+  }

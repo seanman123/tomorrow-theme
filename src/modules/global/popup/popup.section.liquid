@@ -1,0 +1,28 @@
+<section class="popup">
+    <h1 class="popup-title">{{section.settings.text}}</h1>
+</section>
+
+<style>
+    .popup-title{
+        color: {{section.settings.color}}
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Popup",
+  "class": "popup-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "text"
+    },
+    {
+        "type": "color",
+        "id": "color",
+        "label": "Color"
+    }
+  ]
+}
+{% endschema %}

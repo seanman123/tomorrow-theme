@@ -1,0 +1,82 @@
+{% comment %} @info
+This module should be used to render all buttons
+throughout the site. This is particularly useful in
+implementing a consistent button design system.
+
+API:
+@param {String} mod_value The button text
+@param {String} mod_type Is this a block style button or an inline button? (value: "link" or "button")
+@param {String} mod_name The button's "name" attribute
+@param {String} mod_id The button's "id" attribute
+@param {String} mod_class A string of classes to attach to the button
+@param {String} mod_attr A flexible way to attach addition attributes
+@param {String} mod_href The button's "href" attribute
+@param {String} mod_style A BEM-style variation to add to add as a class (e.g. "default" adds class "btn--default")
+
+Example:
+{%- include 'button',
+  mod_value: 'submit',
+  mod_class: 'pdp__submit-button' -%}
+
+{% endcomment %}
+
+{%- assign mod_value = mod_value | default: 'Click Here' -%}
+{%- assign mod_type = mod_type | default: 'button' -%}
+{%- assign mod_name = mod_name | default: blank -%}
+{%- assign mod_id = mod_id | default: blank -%}
+{%- assign mod_class = mod_class | default: blank -%}
+{%- assign mod_attr = mod_attr | default: blank -%}
+{%- assign mod_href = mod_href | default: '/' -%}
+{%- assign mod_style = mod_style | default: blank -%}
+
+{%- capture mod_css -%}
+  btn {{ mod_class | strip }} {%- if mod_style != blank -%}btn--{{- mod_style -}}{%- endif -%}
+{%- endcapture -%}
+
+{%- case mod_type -%}
+  {%- when 'link' -%}
+    <a
+      class="{{- mod_css | strip -}}"
+      {%- if mod_href != blank -%}
+        href="{{- mod_href -}}"
+      {%- endif -%}
+      {%- if mod_id != blank -%}
+        id="{{- mod_id -}}"
+      {%- endif -%}
+      {%- if mod_attr != blank -%}
+        {{- mod_attr -}}
+      {%- endif -%}
+      title="{{- mod_value -}}">
+      <span class="button__el">
+        {{- mod_value -}}
+      </span>
+    </a>
+  {%- else -%}
+    <button
+      class="{{- mod_css | strip -}}"
+      type="{{- mod_type -}}"
+      {%- if mod_id != blank -%}
+        id="{{- mod_id -}}"
+      {%- endif -%}
+      {%- if mod_name != blank -%}
+        name="{{- mod_name -}}"
+      {%- endif -%}
+      {%- if mod_attr != blank -%}
+        {{- mod_attr -}}
+      {%- endif -%}
+      aria-label="{{- mod_value -}}">
+      <span class="button__el">
+        {{- mod_value -}}
+      </span>
+    </button>
+{%- endcase -%}
+
+{%- assign mod_value = nil -%}
+{%- assign mod_type = nil -%}
+{%- assign mod_name = nil -%}
+{%- assign mod_id = nil -%}
+{%- assign mod_class = nil -%}
+{%- assign mod_css = nil -%}
+{%- assign mod_attr = nil -%}
+{%- assign mod_href = nil -%}
+{%- assign mod_style = nil -%}
